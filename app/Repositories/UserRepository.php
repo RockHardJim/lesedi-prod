@@ -27,18 +27,15 @@ class UserRepository{
      * Allows any service to save data via the numerous services
      * @param string $endpoint
      * @param array $data
-     * @return Closure
+     * @return JsonResponse
      */
-    public function save(string $endpoint, array $data): Closure
+    public function save(string $endpoint, array $data): JsonResponse
     {
         return match(true){
-            $endpoint === 'user' => function() use($data){
-                $this->create_user($data);
-            },
+            $endpoint === 'user' => $this->create_user($data),
 
-            $endpoint === 'profile' => function() use($data){
-                $this->create_profile($data);
-            }
+            $endpoint === 'profile' => $this->create_profile($data)
+
         };
     }
 

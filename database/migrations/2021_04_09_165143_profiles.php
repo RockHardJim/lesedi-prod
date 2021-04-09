@@ -16,7 +16,7 @@ class Profiles extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->string('profile')->primary();
             $table->string('user')->index()->unique();
-            $table->enum('gender', ['male', 'female', 'agender', 'non-conforming', 'bigender', 'two-spirit', 'genderqueer', 'transgender', 'uncategorized']);
+            $table->enum('gender', ['male', 'female', 'a-gender', 'non-conforming', 'bi-gender', 'two-spirit', 'gender-queer', 'transgender', 'uncategorized']);
             $table->integer('age');
             $table->string('latitude');
             $table->string('longitude');
